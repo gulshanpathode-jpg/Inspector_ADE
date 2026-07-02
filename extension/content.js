@@ -239,8 +239,16 @@
       const parsed = parseControl(container);
       if (!parsed) continue;
 
-      const label = questionPrompt(container);
-      if (!label) continue; // unlabeled control - skip
+      let label = questionPrompt(container);
+      if (!label) {
+        // Some controls have no prompt of their own but sit directly under a
+        // module heading (e.g. the "Property Type" radio group, whose form_id_*
+        // prompt div is empty). Fall back to the section header so the question
+        // is captured instead of dropped.
+        const h = current && current.header;
+        if (h && h !== "(Ungrouped)" && h !== "(Section)") label = h;
+      }
+      if (!label) continue; // still no usable text - skip
 
       current.questions.push({
         id: parsed.fieldKey,
