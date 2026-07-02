@@ -1,0 +1,10 @@
+# Backend is not part of this repository (extension only)
+backend/
+
+# Ignore all Markdown files except the README
+*.md
+!README.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
