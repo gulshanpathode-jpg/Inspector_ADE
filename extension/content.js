@@ -189,11 +189,24 @@
       return { fieldKey, type: "checkbox", options, currentAnswer: selected };
     }
 
-    // Select dropdown
+    // Select dropdown. The current choice is encoded two ways, mirroring the
+    // radio/checkbox groups: the live page sets `.value`/`.selectedIndex` (a
+    // real, non-empty selection), while saved HTML - and some live states -
+    // instead tint the chosen <option> with `customFormHighlightBlue`. Prefer a
+    // genuine selected value; fall back to the Blue-highlighted option. The
+    // empty "-Select One-" placeholder (value="") is neither a valid option nor
+    // an answer, so it's excluded from the options list and ignored as a value.
     if (tag === "SELECT") {
-      const options = Array.from(ctrl.options).map((o) => o.text.trim());
-      const currentAnswer =
-        ctrl.selectedIndex >= 0 && ctrl.value ? ctrl.options[ctrl.selectedIndex].text.trim() : null;
+      const realOptions = Array.from(ctrl.options).filter((o) => o.value !== "");
+      const options = realOptions.map((o) => o.text.trim()).filter(Boolean);
+
+      let currentAnswer = null;
+      if (ctrl.value && ctrl.selectedIndex >= 0) {
+        currentAnswer = ctrl.options[ctrl.selectedIndex].text.trim();
+      } else {
+        const blue = realOptions.find((o) => o.classList.contains("customFormHighlightBlue"));
+        if (blue) currentAnswer = blue.text.trim();
+      }
       return { fieldKey, type: "select", options, currentAnswer };
     }
 
@@ -267,6 +280,28 @@
   // <li> holds a <div imageid="<id>"> with a thumbnail, a category <select>, and
   // a download link (full-res).
 
+  // The "i" info popup (imageInfoPopup) copies its EXIF table from a hidden
+  // per-image element (#Image<id>Info) that the server renders alongside each
+  // image - so the date the photo was taken is already in the DOM without
+  // opening the dialog. Prefer the "Image Date" row; fall back to EXIF
+  // "DateTimeOriginal" (formatted "2026:07:05 20:34:37" - colons in the date).
+  function imageDateFor(id) {
+    const info = document.getElementById("Image" + id + "Info");
+    if (!info) return null;
+    let fallback = null;
+    for (const th of info.querySelectorAll("th")) {
+      const key = norm(th.textContent);
+      const td = th.parentElement ? th.parentElement.querySelector("td") : null;
+      const val = text(td);
+      if (!val) continue;
+      if (key === "image date") return val;
+      if (key === "datetimeoriginal" && !fallback) {
+        fallback = val.replace(/^(\d{4}):(\d{2}):(\d{2})/, "$1-$2-$3");
+      }
+    }
+    return fallback;
+  }
+
   function scrapePhotos() {
     const photos = [];
     const ul = document.getElementById("images");
@@ -295,6 +330,7 @@
         imageGlobalId: div.getAttribute("imageglobalid") || null,
         label: category || "Image " + id,
         category,
+        imageDate: imageDateFor(id), // "YYYY-MM-DD HH:MM:SS" or null
         thumbnailUrl: thumbUrl,
         fullResUrl,
         filename: id + ".jpg",
@@ -460,6 +496,53 @@
     return null;
   }
 
+  // ---------- photo-date check (stale photos) ----------
+  // Every photo of an inspection should be taken on the day the form says the
+  // inspection was completed. Compare each photo's EXIF date (imageDate, date
+  // part only) against the "Date Completed" input; any photo taken on a
+  // different day is flagged as stale.
+  //
+  // The field is matched by its data-custom-form-name. If the site renames it
+  // (e.g. to "CompletionDate"), update this constant.
+  const COMPLETED_DATE_NAME = "CompletedDate";
+
+  // Value of the live "Date Completed" input ("YYYY-MM-DD") or null. The
+  // read-only "Previous Value" twin has no data-custom-form-name attribute, so
+  // the selector alone excludes it; the -previous name filter is belt-and-braces.
+  function completedDateValue() {
+    const root = formRoot();
+    if (!root) return null;
+    const input = Array.from(
+      root.querySelectorAll('input[data-custom-form-name="' + COMPLETED_DATE_NAME + '"]')
+    ).find((i) => !/-previous$/.test(i.name || ""));
+    const v = input ? (input.value || "").trim() : "";
+    return v || null;
+  }
+
+  function checkPhotoDates(photos) {
+    const completedDate = completedDateValue();
+    const out = { completedDate, total: photos.length, withDate: 0, noDate: 0, stale: [] };
+    if (!completedDate) return out;
+    for (const p of photos) {
+      const day = (p.imageDate || "").slice(0, 10); // "YYYY-MM-DD HH:MM:SS" → date part
+      if (!day) {
+        out.noDate++;
+        continue;
+      }
+      out.withDate++;
+      if (day !== completedDate) {
+        out.stale.push({
+          attid: p.attid,
+          label: p.label,
+          imageDate: p.imageDate,
+          thumbnailUrl: p.thumbnailUrl,
+          fullResUrl: p.fullResUrl,
+        });
+      }
+    }
+    return out;
+  }
+
   // ---------- detection ----------
 
   function detect() {
@@ -467,7 +550,7 @@
     const supported = !!root;
     const { sections } = scrapeQuestions();
     const questionCount = sections.reduce((n, s) => n + s.questions.length, 0);
-    const photoCount = scrapePhotos().length;
+    const photos = scrapePhotos();
     return {
       ok: true,
       supported,
@@ -475,7 +558,8 @@
       url: location.href,
       address: scrapeAddress(),
       questionCount,
-      photoCount,
+      photoCount: photos.length,
+      photoDates: checkPhotoDates(photos),
     };
   }
 
@@ -492,6 +576,7 @@
         jobId: inspectionId(),
         url: location.href,
         address: scrapeAddress(),
+        completedDate: completedDateValue(),
         ...scrapeQuestions(),
         photos: scrapePhotos(),
       };

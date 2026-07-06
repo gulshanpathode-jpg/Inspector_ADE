@@ -29,6 +29,8 @@ const els = {
   detectionBadge: $('detection-badge'),
   detectionAddressBlock: $('detection-address-block'),
   detectionAddress: $('detection-address'),
+  detectionPhotoDatesBlock: $('detection-photodates-block'),
+  photoDatesFlag: $('photodates-flag'),
   btnCopyAddress: $('btn-copy-address'),
   btnOpenAddress: $('btn-open-address'),
   btnMapAddress: $('btn-map-address'),
@@ -293,11 +295,13 @@ function renderDetection() {
     } else {
       els.detectionAddressBlock.hidden = true;
     }
+    renderPhotoDates(d);
   } else {
     els.detectionName.textContent = 'Unsupported page';
     els.detectionBadge.textContent = 'NOT SUPPORTED';
     els.detectionBadge.className = 'badge badge-warning';
     els.detectionAddressBlock.hidden = true;
+    els.detectionPhotoDatesBlock.hidden = true;
     els.warningCard.style.display = 'block';
     els.warningBody.textContent =
       'Inspector ADE verifies inspection answers against the photos, but it ' +
@@ -325,6 +329,116 @@ function renderDetection() {
     showReadyState(d);
   }
 }
+
+// ── Photo-date check (stale photos) ──────────────────────────────────
+// content.js DETECT compares each photo's EXIF date (read from the page's
+// hidden #Image<id>Info block) with the form's "Date Completed" and returns
+// photoDates = { completedDate, total, withDate, noDate, stale: [...] }.
+// Render the verdict under the address: a green "okay" when every dated photo
+// matches, or a red flag that pins each stale photo's thumbnail (clicking one
+// opens the on-page viewer). Thumbnails are fetched in the PAGE origin
+// (SameSite session cookie - the panel can't fetch them itself) and cached per
+// job so repeated re-detects don't refetch.
+const staleThumbCache = { jobId: null, thumbs: {} }; // attid → data URL
+
+function renderPhotoDates(d) {
+  const pd = d && d.photoDates;
+  const block = els.detectionPhotoDatesBlock;
+  // Nothing to check: no photos yet, or no "Date Completed" value on the form.
+  if (!pd || !pd.completedDate || !pd.total) {
+    block.hidden = true;
+    return;
+  }
+  block.hidden = false;
+  const flag = els.photoDatesFlag;
+  const stale = pd.stale || [];
+
+  if (!stale.length) {
+    const extra = pd.noDate
+      ? ` · ${pd.noDate} photo${pd.noDate === 1 ? '' : 's'} without a readable date`
+      : '';
+    flag.className = 'photodates-flag is-ok';
+    flag.innerHTML =
+      `<div class="photodates-msg">${iconCheck()}<span>Okay - all ` +
+      `${pd.withDate} photo date${pd.withDate === 1 ? '' : 's'} match Date Completed ` +
+      `(${escapeHtml(pd.completedDate)})${escapeHtml(extra)}</span></div>`;
+    return;
+  }
+
+  if (staleThumbCache.jobId !== d.jobId) {
+    staleThumbCache.jobId = d.jobId;
+    staleThumbCache.thumbs = {};
+  }
+
+  const items = stale
+    .map((p, i) => {
+      const src = staleThumbCache.thumbs[p.attid] || '';
+      const img = src
+        ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(p.label || 'Photo')}" />`
+        : `<span class="stale-thumb-ph">…</span>`;
+      const title = `${p.label || 'Photo'} · taken ${p.imageDate || 'unknown'}`;
+      return `<button class="stale-thumb" data-idx="${i}" title="${escapeHtml(title)}">
+          ${img}
+          <span class="stale-thumb-date">${escapeHtml((p.imageDate || '').slice(0, 10))}</span>
+        </button>`;
+    })
+    .join('');
+
+  flag.className = 'photodates-flag is-warn';
+  flag.innerHTML =
+    `<div class="photodates-msg">${iconX()}<span><strong>${stale.length}</strong> photo` +
+    `${stale.length === 1 ? '' : 's'} not taken on Date Completed ` +
+    `(${escapeHtml(pd.completedDate)}) - check the pinned image${stale.length === 1 ? '' : 's'} below.</span></div>` +
+    `<div class="stale-thumbs">${items}</div>`;
+
+  hydrateStaleThumbs(stale);
+}
+
+// Fetch missing stale-photo thumbnails as data URLs via the content script,
+// then re-render the flag (a second pass finds nothing missing, so no loop).
+async function hydrateStaleThumbs(stale) {
+  const jobId = staleThumbCache.jobId;
+  const missing = stale.filter((p) => !staleThumbCache.thumbs[p.attid]);
+  if (!missing.length) return;
+  let res = null;
+  try {
+    res = await sendToTab({
+      type: 'FETCH_IMAGES',
+      preferFullRes: false,
+      items: missing.map((p) => ({
+        id: p.attid,
+        thumbnailUrl: p.thumbnailUrl,
+        fullResUrl: p.fullResUrl,
+      })),
+    });
+  } catch (e) {
+    return; // not on the inspection tab - placeholders stay
+  }
+  if (!res || !res.ok || staleThumbCache.jobId !== jobId) return;
+  let got = false;
+  for (const img of res.images || []) {
+    if (img && img.id && img.dataUrl) {
+      staleThumbCache.thumbs[img.id] = img.dataUrl;
+      got = true;
+    }
+  }
+  if (got && state.detection && state.detection.jobId === jobId) {
+    renderPhotoDates(state.detection);
+  }
+}
+
+// Pinned stale thumbnail → open the on-page viewer with the stale gallery.
+els.photoDatesFlag.addEventListener('click', (e) => {
+  const btn = e.target.closest('.stale-thumb');
+  if (!btn) return;
+  const pd = state.detection && state.detection.photoDates;
+  const stale = (pd && pd.stale) || [];
+  if (!stale.length) return;
+  const urls = stale
+    .map((p) => staleThumbCache.thumbs[p.attid] || p.fullResUrl || p.thumbnailUrl)
+    .filter(Boolean);
+  openImageOnPage(urls, Math.max(0, Number(btn.dataset.idx) || 0));
+});
 
 // Supported page, nothing to restore → fresh "ready to sync" canvas.
 function showReadyState(d) {
