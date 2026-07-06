@@ -1,0 +1,773 @@
+{
+  "receivedAt": "2026-06-30T14:52:00.965Z",
+  "jobId": "111599271",
+  "files": [
+    {
+      "field": "images",
+      "filename": "1782831120920__images__1199559762.jpg",
+      "size": 66252
+    },
+    {
+      "field": "images",
+      "filename": "1782831120921__images__1199559751.jpg",
+      "size": 69476
+    },
+    {
+      "field": "images",
+      "filename": "1782831120925__images__1199559754.jpg",
+      "size": 52577
+    },
+    {
+      "field": "images",
+      "filename": "1782831120925__images__1199559758.jpg",
+      "size": 46277
+    },
+    {
+      "field": "images",
+      "filename": "1782831120926__images__1199559753.jpg",
+      "size": 43739
+    },
+    {
+      "field": "images",
+      "filename": "1782831120927__images__1199559755.jpg",
+      "size": 55423
+    },
+    {
+      "field": "images",
+      "filename": "1782831120937__images__1199559761.jpg",
+      "size": 59777
+    },
+    {
+      "field": "images",
+      "filename": "1782831120938__images__1199559760.jpg",
+      "size": 54043
+    },
+    {
+      "field": "images",
+      "filename": "1782831120939__images__1199559764.jpg",
+      "size": 53192
+    },
+    {
+      "field": "images",
+      "filename": "1782831120941__images__1199559765.jpg",
+      "size": 53975
+    },
+    {
+      "field": "images",
+      "filename": "1782831120944__images__1199559768.jpg",
+      "size": 44227
+    },
+    {
+      "field": "images",
+      "filename": "1782831120949__images__1199559766.jpg",
+      "size": 26804
+    },
+    {
+      "field": "images",
+      "filename": "1782831120951__images__1199559767.jpg",
+      "size": 51283
+    },
+    {
+      "field": "images",
+      "filename": "1782831120954__images__1199559770.jpg",
+      "size": 18987
+    },
+    {
+      "field": "images",
+      "filename": "1782831120955__images__1199559771.jpg",
+      "size": 21233
+    },
+    {
+      "field": "images",
+      "filename": "1782831120955__images__1199559772.jpg",
+      "size": 29903
+    }
+  ],
+  "payload": {
+    "jobId": "111599271",
+    "sections": [
+      {
+        "header": "Date Completed",
+        "questions": [
+          {
+            "id": "radioInput1-form_id_1790",
+            "text": "Have you read and understand all the inspection instructions?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "Yes"
+          },
+          {
+            "id": "CompletedDate-form_id_1689",
+            "text": "Date Completed",
+            "type": "text",
+            "options": [],
+            "currentAnswer": "2026-06-30"
+          }
+        ]
+      },
+      {
+        "header": "Gain Access",
+        "questions": [
+          {
+            "id": "GainAccess-form_id_95",
+            "text": "Are you able to complete an exterior inspection?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "Yes"
+          },
+          {
+            "id": "GatedCommunity-form_id_1544",
+            "text": "Is the property located in a gated community/or hoa?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "StreetSign-form_id_1018",
+            "text": "Is Street Sign Present?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "Yes"
+          },
+          {
+            "id": "GatesSecure-form_id_1069",
+            "text": "Is there a gate present around the house that prevents access?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "AddressNumber-form_id_1013",
+            "text": "Is address number present on property?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "Yes"
+          },
+          {
+            "id": "AccessPassCurb-form_id_1357",
+            "text": "Were you able to get past the curb to approach the house?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "Yes"
+          }
+        ]
+      },
+      {
+        "header": "Occupancy",
+        "questions": [
+          {
+            "id": "OccVac-form_id_1535",
+            "text": "Occupancy Status",
+            "type": "radio",
+            "options": [
+              "Occupied",
+              "Vacant",
+              "Partially Vacant"
+            ],
+            "currentAnswer": "Occupied"
+          },
+          {
+            "id": "OccupancyVerifiedBy-form_id_1118",
+            "text": "Occupancy Verified By:",
+            "type": "radio",
+            "options": [
+              "Direct",
+              "Visual",
+              "Other"
+            ],
+            "currentAnswer": "Visual"
+          },
+          {
+            "id": "UnknownOccupant-form_id_1776",
+            "text": "Why were you unable to obtain occupant information directly (Confirm whether you knocked on the door or not and what attempt was made to obtain the information)",
+            "type": "text",
+            "options": [],
+            "currentAnswer": "knocked no answer"
+          },
+          {
+            "id": "OccupancyVisual-form_id_1127",
+            "text": "Visual Occupancy Determined By (Select minimum 3):",
+            "type": "checkbox",
+            "options": [
+              "Furniture in House",
+              "People",
+              "Animals",
+              "Decorations in Season",
+              "Operable Vehicles (Car/Boat)",
+              "Lights On",
+              "Pool maintained",
+              "Trash on curb (on trash day)",
+              "Snow removed in driveway/walkways (during winter)",
+              "Lawn maintained",
+              "Other"
+            ],
+            "currentAnswer": [
+              "Furniture in House",
+              "Decorations in Season",
+              "Operable Vehicles (Car/Boat)",
+              "Lawn maintained"
+            ]
+          }
+        ]
+      },
+      {
+        "header": "Occupant Info",
+        "questions": [
+          {
+            "id": "DoorCards-form_id_1721",
+            "text": "Was door card/envelope provided?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No",
+              "N/A"
+            ],
+            "currentAnswer": "Yes"
+          }
+        ]
+      },
+      {
+        "header": "Violations",
+        "questions": [
+          {
+            "id": "ViolationPosted-form_id_128",
+            "text": "Violations, Postings, Citations Posted?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "Neighborhood",
+        "questions": [
+          {
+            "id": "NeighborhoodCondition-form_id_156",
+            "text": "Neighborhood Condition:",
+            "type": "radio",
+            "options": [
+              "Stable",
+              "Declining",
+              "Improving",
+              "Unknown"
+            ],
+            "currentAnswer": "Stable"
+          },
+          {
+            "id": "TypicalNeighborhoodStyle-form_id_162",
+            "text": "How does the property compare to the neighborhood:",
+            "type": "radio",
+            "options": [
+              "Below",
+              "At",
+              "Above"
+            ],
+            "currentAnswer": "At"
+          },
+          {
+            "id": "HighVandalArea-form_id_1350",
+            "text": "Is this a High Vandal Area?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "Property Type",
+        "questions": [
+          {
+            "id": "ClientStructure-form_id_1772",
+            "text": "Is the structure type different from the type reported by client (see instructions, choose no if N/A)?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "For Sale",
+        "questions": [
+          {
+            "id": "ForSaleSignClearView-form_id_167",
+            "text": "For Sale Sign?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "Construction Type",
+        "questions": [
+          {
+            "id": "PropertyEstimatedValue-form_id_1630",
+            "text": "Estimated Property Value",
+            "type": "select",
+            "options": [
+              "-Select One-",
+              "Up to 9,999",
+              "10,000 - 24,999",
+              "25,000 - 49,999",
+              "50,000 - 74,999",
+              "75,000 - 99,999",
+              "100,000 - 124,999",
+              "125,999 - 149,999",
+              "150,000 - 199,999",
+              "200,000 - 249,999",
+              "250,000 - 499,999",
+              "500,000 and up"
+            ],
+            "currentAnswer": "75,000 - 99,999"
+          },
+          {
+            "id": "DistressedProperty-form_id_1659",
+            "text": "Distressed Property?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No",
+              "Unknown"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "General Property Condition",
+        "questions": [
+          {
+            "id": "PropertyConditionDetail-form_id_1668",
+            "text": "Property Condition Detail",
+            "type": "radio",
+            "options": [
+              "C1—great condition no work needs to be done to the property-newer construction",
+              "C2—very minor work needed to bring property up to good condition-mechanicals intact",
+              "C3—older home but needs repairs to bring up to code and current conditions",
+              "C4—older home, may have some roof or structural issues, outdated, out of code, needs mechanicals",
+              "C5—significant damage to home, work required is significant but could be done",
+              "C6—home is a candidate for demolition"
+            ],
+            "currentAnswer": "C2—very minor work needed to bring property up to good condition-mechanicals intact"
+          }
+        ]
+      },
+      {
+        "header": "Exterior Damages",
+        "questions": [
+          {
+            "id": "BrokenOrBoarded-form_id_1679",
+            "text": "Are there any broken or boarded windows or doors?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "GuttersMissingOrLoose-form_id_255",
+            "text": "Any damaged or disconnected gutters?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "FallenGutters-form_id_258",
+            "text": "Any damaged or disconnected downspouts or extensions?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "RoofLeaksTarped-form_id_272",
+            "text": "Is there a tarp on the roof of the main dwelling?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "RoofDamaged-form_id_275",
+            "text": "Is there any obvious roof damage (missing shingles, holes, damaged stack pipes, sagging roof trusses, damaged shingles, fascia boards or soffits) requiring repair?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "Damaged-form_id_288",
+            "text": "Are there exterior damages caused by natural disaster?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No",
+              "Unable to Determine"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "ExtUnrelatedDamage-form_id_1043",
+            "text": "Are there any exterior damages NOT related to natural disaster?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No",
+              "Unable to determine"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "Exterior Misc",
+        "questions": [
+          {
+            "id": "CriticalHazardsPresent-form_id_363",
+            "text": "Are there any potential hazards at the property that could damage an adjoining property?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "AboveGroundOil-form_id_1748",
+            "text": "Is there an above ground oil tank?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "Unit2Gas-form_id_371",
+            "text": "Is there an above ground propane gas tank on the property?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "GraffitiPresent-form_id_374",
+            "text": "Is there graffiti on exterior of property or on interior that is visible from exterior?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "HoaMember-form_id_379",
+            "text": "Is the exterior maintained by an HOA?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No",
+              "Unk"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "Septic-form_id_383",
+            "text": "Is the property connected to sewer or septic?",
+            "type": "radio",
+            "options": [
+              "Septic",
+              "Sewer",
+              "Unk"
+            ],
+            "currentAnswer": "Unk"
+          },
+          {
+            "id": "ExteriorConditionComments-form_id_409",
+            "text": "General Description of Exterior:",
+            "type": "text",
+            "options": [],
+            "currentAnswer": "good"
+          }
+        ]
+      },
+      {
+        "header": "Yard",
+        "questions": [
+          {
+            "id": "LawnGrassCut-form_id_451",
+            "text": "Does the lawn need maintenance?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "LawnWeedsRemoved-form_id_455",
+            "text": "Does the property have overgrown weeds or invasive plants?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "TreesMaintained-form_id_459",
+            "text": "Do trees and bushes need to be trimmed back from the structure?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "LawnGrassEdged-form_id_463",
+            "text": "Does the lawn need edging?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "DrivewayClearOfSnow-form_id_467",
+            "text": "Are all paved areas free and clear of snow and ice?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "Yes"
+          },
+          {
+            "id": "Grass-form_id_471",
+            "text": "Cut Grass Needed?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "Utilities",
+        "questions": [
+          {
+            "id": "ElectricMeterPresent-form_id_653",
+            "text": "Is the Electric meter present?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "ElectricMeterMissing-form_id_1733",
+            "text": "Electric meter missing reason",
+            "type": "radio",
+            "options": [
+              "Unable to find it",
+              "Visibly removed"
+            ],
+            "currentAnswer": "Unable to find it"
+          },
+          {
+            "id": "ElectricUnkReason-form_id_1782",
+            "text": "Why were you unable to find the Electric meter?",
+            "type": "text",
+            "options": [],
+            "currentAnswer": "unable to find"
+          },
+          {
+            "id": "HasGas-form_id_1727",
+            "text": "Does the property use city gas?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "CityWell-form_id_1726",
+            "text": "Does the property use city water?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          },
+          {
+            "id": "GasShared-form_id_674",
+            "text": "Are there any shared utilities?",
+            "type": "checkbox",
+            "options": [
+              "Electric",
+              "Gas",
+              "Water",
+              "Other",
+              "N/A"
+            ],
+            "currentAnswer": [
+              "N/A"
+            ]
+          }
+        ]
+      },
+      {
+        "header": "General Notes",
+        "questions": [
+          {
+            "id": "ServiceRecommend-form_id_1575",
+            "text": "Any other services recommended?",
+            "type": "radio",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "currentAnswer": "No"
+          }
+        ]
+      },
+      {
+        "header": "Photo Requirements",
+        "questions": [
+          {
+            "id": "GeneralNotes-form_id_1518",
+            "text": "General Notes",
+            "type": "text",
+            "options": [],
+            "currentAnswer": "na"
+          },
+          {
+            "id": "InspectorName-form_id_1690",
+            "text": "Inspector Name",
+            "type": "text",
+            "options": [],
+            "currentAnswer": "David (Leon) Hall"
+          }
+        ]
+      }
+    ],
+    "photos": [
+      {
+        "id": "1199559762",
+        "category": "House#/Address Sign"
+      },
+      {
+        "id": "1199559751",
+        "category": "House#/Address Sign"
+      },
+      {
+        "id": "1199559754",
+        "category": "House Left Side"
+      },
+      {
+        "id": "1199559758",
+        "category": "House#/Address Sign"
+      },
+      {
+        "id": "1199559753",
+        "category": "Street Scene"
+      },
+      {
+        "id": "1199559755",
+        "category": "House Left Side"
+      },
+      {
+        "id": "1199559761",
+        "category": "Visual Occupancy"
+      },
+      {
+        "id": "1199559760",
+        "category": "Front of House"
+      },
+      {
+        "id": "1199559764",
+        "category": "House Right Side"
+      },
+      {
+        "id": "1199559765",
+        "category": "Visual Occupancy"
+      },
+      {
+        "id": "1199559768",
+        "category": "Visual Occupancy"
+      },
+      {
+        "id": "1199559766",
+        "category": "House#/Address Sign"
+      },
+      {
+        "id": "1199559767",
+        "category": "Visual Occupancy"
+      },
+      {
+        "id": "1199559770",
+        "category": "Visual Occupancy"
+      },
+      {
+        "id": "1199559771",
+        "category": "Door Hanger"
+      },
+      {
+        "id": "1199559772",
+        "category": "Door Hanger"
+      }
+    ]
+  }
+}

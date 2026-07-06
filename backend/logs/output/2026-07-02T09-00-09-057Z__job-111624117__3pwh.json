@@ -1,0 +1,832 @@
+{
+  "sentAt": "2026-07-02T09:00:09.066Z",
+  "jobId": "111624117",
+  "response": {
+    "result_id": "2026-07-02T09-00-09-057Z__job-111624117__3pwh",
+    "answers": [
+      {
+        "questionId": "radioInput1-form_id_1790",
+        "aiAnswer": "No",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "CompletedDate-form_id_1689",
+        "aiAnswer": "2026-07-01",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "GainAccess-form_id_95",
+        "aiAnswer": "No",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          }
+        ]
+      },
+      {
+        "questionId": "GatedCommunity-form_id_1544",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          },
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          }
+        ]
+      },
+      {
+        "questionId": "StreetSign-form_id_1018",
+        "aiAnswer": "No",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          },
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          }
+        ]
+      },
+      {
+        "questionId": "GatesSecure-form_id_1069",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          },
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "AddressNumber-form_id_1013",
+        "aiAnswer": "No",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "AccessPassCurb-form_id_1357",
+        "aiAnswer": "Yes",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "OccVac-form_id_1535",
+        "aiAnswer": "Vacant",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "OccupancyVerifiedBy-form_id_1118",
+        "aiAnswer": "Visual",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "UnknownOccupant-form_id_1776",
+        "aiAnswer": "no one answered",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "OccupancyVisual-form_id_1127",
+        "aiAnswer": [
+          "People",
+          "Animals",
+          "Operable Vehicles (Car/Boat)"
+        ],
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "DoorCards-form_id_1721",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          }
+        ]
+      },
+      {
+        "questionId": "ViolationPosted-form_id_128",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          },
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          }
+        ]
+      },
+      {
+        "questionId": "NeighborhoodCondition-form_id_156",
+        "aiAnswer": "Declining",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          },
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          }
+        ]
+      },
+      {
+        "questionId": "TypicalNeighborhoodStyle-form_id_162",
+        "aiAnswer": "At",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          },
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "HighVandalArea-form_id_1350",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "ClientStructure-form_id_1772",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "ForSaleSignClearView-form_id_167",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "PropertyEstimatedValue-form_id_1630",
+        "aiAnswer": "250,000 - 499,999",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "DistressedProperty-form_id_1659",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "PropertyConditionDetail-form_id_1668",
+        "aiAnswer": "C1—great condition no work needs to be done to the property-newer construction",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "BrokenOrBoarded-form_id_1679",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          }
+        ]
+      },
+      {
+        "questionId": "GuttersMissingOrLoose-form_id_255",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          },
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          }
+        ]
+      },
+      {
+        "questionId": "FallenGutters-form_id_258",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          },
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          }
+        ]
+      },
+      {
+        "questionId": "RoofLeaksTarped-form_id_272",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          },
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "RoofDamaged-form_id_275",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "Damaged-form_id_288",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "ExtUnrelatedDamage-form_id_1043",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "CriticalHazardsPresent-form_id_363",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "AboveGroundOil-form_id_1748",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "Unit2Gas-form_id_371",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "GraffitiPresent-form_id_374",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          }
+        ]
+      },
+      {
+        "questionId": "HoaMember-form_id_379",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          },
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          }
+        ]
+      },
+      {
+        "questionId": "Septic-form_id_383",
+        "aiAnswer": "Septic",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          },
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          }
+        ]
+      },
+      {
+        "questionId": "ExteriorConditionComments-form_id_409",
+        "aiAnswer": "",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          },
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "LawnGrassCut-form_id_451",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "LawnWeedsRemoved-form_id_455",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "TreesMaintained-form_id_459",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "LawnGrassEdged-form_id_463",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "DrivewayClearOfSnow-form_id_467",
+        "aiAnswer": "No",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "Grass-form_id_471",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "ElectricMeterPresent-form_id_653",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907740",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          }
+        ]
+      },
+      {
+        "questionId": "ElectricMeterMissing-form_id_1733",
+        "aiAnswer": "Unable to find it",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907734",
+            "category": "Front of House"
+          },
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          }
+        ]
+      },
+      {
+        "questionId": "ElectricUnkReason-form_id_1782",
+        "aiAnswer": "occupancy",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907736",
+            "category": "House Left Side"
+          },
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          }
+        ]
+      },
+      {
+        "questionId": "HasGas-form_id_1727",
+        "aiAnswer": "No",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907746",
+            "category": "House Right Side"
+          },
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "CityWell-form_id_1726",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907752",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "GasShared-form_id_674",
+        "aiAnswer": [
+          "Electric",
+          "Water"
+        ],
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907750",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          }
+        ]
+      },
+      {
+        "questionId": "ServiceRecommend-form_id_1575",
+        "aiAnswer": "Yes",
+        "confidence": 0.78,
+        "reasoning": "The photos suggest a different answer than the page.",
+        "referenceImages": [
+          {
+            "id": "1199907753",
+            "category": "House#/Address Sign"
+          },
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          }
+        ]
+      },
+      {
+        "questionId": "GeneralNotes-form_id_1518",
+        "aiAnswer": "",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907758",
+            "category": "Visual Occupancy"
+          },
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          }
+        ]
+      },
+      {
+        "questionId": "InspectorName-form_id_1690",
+        "aiAnswer": "Heather Laserre",
+        "confidence": 0.95,
+        "reasoning": "Matches the answer already on the page.",
+        "referenceImages": [
+          {
+            "id": "1199907727",
+            "category": "Street Scene"
+          },
+          {
+            "id": "1199907741",
+            "category": "Street Scene"
+          }
+        ]
+      }
+    ]
+  }
+}

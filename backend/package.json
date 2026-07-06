@@ -1,0 +1,16 @@
+{
+  "name": "inspector-ade-ai-backend",
+  "version": "0.1.0",
+  "description": "Stub backend (port 3001) that accepts Inspector ADE Q&A + photos and returns mock AI answers.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
