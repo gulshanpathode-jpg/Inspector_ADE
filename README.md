@@ -79,6 +79,8 @@ flips roughly half the answers so you can see matches and mismatches. Replace
 2. **Load unpacked** → select the `extension/` folder.
 3. Open `inspectorade.com/orders`, click an order, open its **Approve/Reject**
    tab. The side panel auto-detects it as **SUPPORTED** (no reload needed).
+   Detection re-runs on tab switches and when a browser window regains focus, so
+   opening a photo in a separate tab/window and closing it recovers on its own.
 4. Click **Sync & Verify with AI** — one button runs scrape → fetch photos →
    verify. Review each suggestion with **Accept / Reject / Reconsider**, filter
    by **All / Different / Matched**, and click a card to scroll the page to that

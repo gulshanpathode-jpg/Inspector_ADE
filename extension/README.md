@@ -14,6 +14,10 @@ apply suggestions back into the form.
   drives the focus/flash + in-page image viewer.
 - `imageModal.js` — on-page image viewer (zoom / pan / prev-next).
 - `sidepanel.html` / `.css` / `.js` — the UI (SmartFill design system, rebranded).
+  Detection re-runs on tab activation, page updates, and `chrome.windows`
+  focus changes, so opening a photo in a separate tab/window and closing it
+  recovers to **SUPPORTED** without a manual reload. The click-to-scroll flash
+  holds ~1.5s and never stacks (each click clears the prior overlay first).
 
 See the project root **README.md** (full functionality + request/response
 contract) and **CONTEXT.md** (deep page-structure notes / handoff doc).

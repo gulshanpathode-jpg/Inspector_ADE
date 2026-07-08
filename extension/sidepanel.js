@@ -1549,6 +1549,17 @@ function scheduleDetect() {
 
 if (hasChromeTabs) {
   chrome.tabs.onActivated.addListener(() => scheduleDetect());
+  // Re-detect when a browser window regains focus. Opening a photo in a separate
+  // tab/window makes the panel's active-tab query point at that page, so
+  // detection flips to "unsupported"; closing it and returning to the inspection
+  // window fires NO tab-activation event, leaving detection stuck until a manual
+  // reload. Re-detecting on window focus recovers automatically.
+  if (chrome.windows && chrome.windows.onFocusChanged) {
+    chrome.windows.onFocusChanged.addListener((winId) => {
+      if (winId === chrome.windows.WINDOW_ID_NONE) return; // focus left Chrome
+      scheduleDetect();
+    });
+  }
   chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
     // Re-detect both while the page is loading and once it completes, so a job
     // opened in the active tab is picked up without waiting on a single event.
