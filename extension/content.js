@@ -544,6 +544,21 @@
     return null;
   }
 
+  // ---------- work code ----------
+  // The modal header summary has <tr><th>Work Code</th><td>PI</td></tr>.
+  // Return the code (e.g. "PI") or null if the row isn't present.
+  function scrapeWorkCode() {
+    const ths = Array.from(document.querySelectorAll("th"));
+    for (const th of ths) {
+      if (text(th).toLowerCase() === "work code") {
+        const td = th.parentElement ? th.parentElement.querySelector("td") : null;
+        const t = td ? text(td) : "";
+        if (t) return t;
+      }
+    }
+    return null;
+  }
+
   // ---------- photo-date check (stale photos) ----------
   // Every photo of an inspection should be taken on the day the form says the
   // inspection was completed. Compare each photo's EXIF date (imageDate, date
@@ -624,6 +639,7 @@
         jobId: inspectionId(),
         url: location.href,
         address: scrapeAddress(),
+        workCode: scrapeWorkCode(),
         completedDate: completedDateValue(),
         ...scrapeQuestions(),
         photos: scrapePhotos(),

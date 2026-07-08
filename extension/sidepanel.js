@@ -747,6 +747,7 @@ async function startPipeline() {
     const form = new FormData();
     const payload = {
       jobId: state.scraped.jobId,
+      work_code: state.scraped.workCode || null,
       sections: state.scraped.sections,
       photos: [],
     };

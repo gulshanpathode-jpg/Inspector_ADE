@@ -2,7 +2,7 @@
 // Runs on port 3001 so it can sit alongside the EZ backend (3000) at the same time.
 //
 // Accepts multipart/form-data:
-//   - field "payload": JSON string { jobId, url, sections:[...], photos:[{id,category}] }
+//   - field "payload": JSON string { jobId, work_code, url, sections:[...], photos:[{id,category}] }
 //   - field "images" (repeated): the binary image files. Each file is named
 //     "<id>.<ext>" (id = the photo's image id), so the bytes map back to the
 //     matching photos[].id. (Multer captures every file regardless of field.)
