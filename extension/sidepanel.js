@@ -434,8 +434,12 @@ els.photoDatesFlag.addEventListener('click', (e) => {
   const pd = state.detection && state.detection.photoDates;
   const stale = (pd && pd.stale) || [];
   if (!stale.length) return;
+  // Open the full-resolution image in the viewer, not the small pinned
+  // thumbnail. The on-page viewer loads same-origin URLs with the session
+  // cookies, so the remote full-res URL works there; the cached thumbnail
+  // data URL is only a last resort when no URL is available.
   const urls = stale
-    .map((p) => staleThumbCache.thumbs[p.attid] || p.fullResUrl || p.thumbnailUrl)
+    .map((p) => p.fullResUrl || p.thumbnailUrl || staleThumbCache.thumbs[p.attid])
     .filter(Boolean);
   openImageOnPage(urls, Math.max(0, Number(btn.dataset.idx) || 0));
 });

@@ -1734,16 +1734,17 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -0.2px; }
   font-size: 12.5px;
   line-height: 1.45;
   border: 1px solid var(--border);
+  color: var(--text-muted);
 }
 .photodates-flag.is-ok {
-  background: #f0fdf7;
+  background: var(--success-soft);
   border-color: rgba(16, 185, 129, 0.35);
-  color: #067a57;
+  color: #047857;
 }
 .photodates-flag.is-warn {
-  background: #fef2f2;
+  background: var(--danger-soft);
   border-color: rgba(239, 68, 68, 0.35);
-  color: #b42323;
+  color: #b91c1c;
 }
 .photodates-msg { display: flex; align-items: flex-start; gap: 7px; }
 .photodates-msg svg { flex: none; margin-top: 2.5px; }
@@ -1790,7 +1791,7 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -0.2px; }
   font-size: 9px;
   line-height: 1;
   font-weight: 700;
-  color: #b42323;
+  color: #b91c1c;
   white-space: nowrap;
 }
 

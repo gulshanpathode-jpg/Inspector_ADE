@@ -21,20 +21,73 @@
   if (window.__adeVerifierContentLoaded) return;
   window.__adeVerifierContentLoaded = true;
 
-  // The element currently marked as "the question being answered".
-  let highlightedGroup = null;
 
+  // Inject the flash stylesheet once. The highlight is a yellow overlay that
+  // holds for ~2s then fades out, not a persistent box. We use an OVERLAY
+  // (drawn on top of the element) rather than a CSS background: a background
+  // tint on the question is hidden behind the cells' own opaque backgrounds,
+  // but a translucent overlay always shows.
   function ensureHighlightStyle() {
     if (document.getElementById("ade-verifier-style")) return;
     const style = document.createElement("style");
     style.id = "ade-verifier-style";
     style.textContent = `
-      .ade-verifier-active-question {
-        outline: 3px solid #7c3aed !important;
-        outline-offset: 2px !important;
-        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25) !important;
+      .ade-verifier-flash {
+        position: absolute;
+        z-index: 2147483646;
+        pointer-events: none;
+        border-radius: 4px;
+        background: rgba(250, 204, 21, 0.55);
+        box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.45);
+        animation: ade-verifier-flash-fade 2s ease-out forwards;
+      }
+      @keyframes ade-verifier-flash-fade {
+        0%   { opacity: 0; }
+        6%   { opacity: 1; }
+        75%  { opacity: 1; }
+        100% { opacity: 0; }
       }`;
     (document.head || document.documentElement).appendChild(style);
+  }
+
+  // Scroll the question into view, wait for the smooth scroll to settle, then
+  // flash. scrollend fires when the smooth scroll finishes; if the element is
+  // already in view (no scroll needed) we flash right away, and a timeout
+  // covers browsers/paths where scrollend never fires.
+  function scrollThenFlash(target) {
+    const r = target.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const needsScroll = r.top < 0 || r.bottom > vh;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (!needsScroll) {
+      flashHighlight(target);
+      return;
+    }
+    let done = false;
+    const fire = () => {
+      if (done) return;
+      done = true;
+      window.removeEventListener("scrollend", fire);
+      clearTimeout(fallback);
+      flashHighlight(target);
+    };
+    const fallback = setTimeout(fire, 700);
+    window.addEventListener("scrollend", fire);
+  }
+
+  // Flash a translucent yellow box over the question, then remove it. Anchored
+  // to the document (rect + scroll offset) so it sits over the target.
+  function flashHighlight(target) {
+    const rect = target.getBoundingClientRect();
+    const flash = document.createElement("div");
+    flash.className = "ade-verifier-flash";
+    flash.style.top = rect.top + window.scrollY - 2 + "px";
+    flash.style.left = rect.left + window.scrollX - 2 + "px";
+    flash.style.width = rect.width + 4 + "px";
+    flash.style.height = rect.height + 4 + "px";
+    (document.body || document.documentElement).appendChild(flash);
+    flash.addEventListener("animationend", () => flash.remove());
+    setTimeout(() => flash.remove(), 2600); // safety net if animationend misses
   }
 
   // ---------- helpers ----------
@@ -452,11 +505,9 @@
 
   // ---------- focus + highlight a question ----------
 
+  // Remove any in-flight flash overlay (e.g. on a CLEAR_HIGHLIGHT message).
   function clearHighlight() {
-    if (highlightedGroup) {
-      highlightedGroup.classList.remove("ade-verifier-active-question");
-      highlightedGroup = null;
-    }
+    document.querySelectorAll(".ade-verifier-flash").forEach((el) => el.remove());
   }
 
   function focusQuestion(fieldKey) {
@@ -466,10 +517,7 @@
     const target = el.closest(".customFormElement") || el.closest("div") || el;
 
     ensureHighlightStyle();
-    clearHighlight();
-    target.classList.add("ade-verifier-active-question");
-    highlightedGroup = target;
-    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    scrollThenFlash(target);
 
     return { ok: true };
   }
