@@ -89,8 +89,8 @@ const els = {
 // Both URLs live in code and are independent: feedback is NOT derived from
 // verify, so you can point them at different hosts/paths. They are shown
 // masked and read-only in the Config tab (see maskUrl / renderEndpoints).
-const VERIFY_URL   = 'http://164.52.217.213/describe';
-const FEEDBACK_URL = 'http://164.52.217.213/feedback';
+const VERIFY_URL = 'http://101.53.137.140/ia/describe';
+const FEEDBACK_URL = 'http://101.53.137.140/ia/feedback';
 
 // Mask a URL for display: hide everything but the final path segment,
 // e.g. http://host/api/ade/verify → *****/verify
@@ -563,7 +563,7 @@ function persistJobs() {
       .filter(Boolean)
       .map(serializeJob);
     const p = chrome.storage.local.set({ [STORAGE_JOBS_KEY]: { jobs, savedAt: Date.now() } });
-    if (p && p.catch) p.catch(() => {}); // swallow async quota errors
+    if (p && p.catch) p.catch(() => { }); // swallow async quota errors
   } catch (e) { /* storage full / unavailable - non-fatal */ }
 }
 
