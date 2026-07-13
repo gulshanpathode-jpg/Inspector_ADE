@@ -75,6 +75,7 @@ const els = {
   cfgVerifyUrl: $('cfg-verify-url'),
   cfgFeedbackUrl: $('cfg-feedback-url'),
   cfgFullRes: $('cfg-fullres'),
+  cfgDark: $('cfg-dark'),
   cfgColorCurrent: $('cfg-color-current'),
   cfgColorImage: $('cfg-color-image'),
   swatchCurrent: $('swatch-current'),
@@ -98,7 +99,7 @@ function maskUrl(url) {
   const seg = String(url || '').replace(/\/+$/, '').split('/').pop();
   return `*****/${seg}`;
 }
-const COLOR_DEFAULTS = { current: '#f8fafc', image: '#ede9fe' };
+const COLOR_DEFAULTS = { current: '#f7f6fb', image: '#e0f2fe' };
 const COLOR_VARS = { current: '--cfg-current-bg', image: '--cfg-image-bg' };
 const STORAGE_KEY = 'adeVerifierConfig';
 const STORAGE_JOBS_KEY = 'adeVerifierJobs'; // persisted review queues + decisions
@@ -118,7 +119,7 @@ const state = {
   apiStartMs: 0,
   pipelinePageKey: null, // job-id key the current queue belongs to (see pageKeyFor)
   activity: [],
-  config: { fullRes: true, colors: { ...COLOR_DEFAULTS } },
+  config: { fullRes: true, theme: 'light', colors: { ...COLOR_DEFAULTS } },
 };
 
 const STATUS_DESCRIPTIONS = {
@@ -1465,6 +1466,19 @@ els.btnClearLog.addEventListener('click', () => {
 // 14. Config (backend URL, full-res, answer-block colours) + persistence
 // ═════════════════════════════════════════════════════════════════════
 
+// Light is the default; dark is opt-in. Setting data-theme="dark" on <html>
+// activates the :root[data-theme="dark"] rules in the stylesheet. The
+// localStorage mirror lets the inline <head> script apply the theme before
+// first paint (no flash) on the next open.
+function applyTheme() {
+  const dark = state.config.theme === 'dark';
+  const root = document.documentElement;
+  if (dark) root.setAttribute('data-theme', 'dark');
+  else root.removeAttribute('data-theme');
+  try { localStorage.setItem('sf-theme', dark ? 'dark' : 'light'); } catch (e) { /* non-fatal */ }
+  if (els.cfgDark) els.cfgDark.checked = dark;
+}
+
 function applyColors() {
   const root = document.documentElement;
   for (const key of Object.keys(COLOR_VARS)) {
@@ -1490,6 +1504,7 @@ async function loadConfig() {
     if (saved) {
       state.config = {
         fullRes: saved.fullRes !== false,
+        theme: saved.theme === 'dark' ? 'dark' : 'light',
         colors: { ...COLOR_DEFAULTS, ...(saved.colors || {}) },
       };
     }
@@ -1497,6 +1512,7 @@ async function loadConfig() {
 
   renderEndpoints();
   els.cfgFullRes.checked = state.config.fullRes;
+  applyTheme();
   applyColors();
 }
 
@@ -1511,6 +1527,13 @@ els.cfgFullRes.addEventListener('change', () => {
   state.config.fullRes = els.cfgFullRes.checked;
   saveConfig();
 });
+if (els.cfgDark) {
+  els.cfgDark.addEventListener('change', () => {
+    state.config.theme = els.cfgDark.checked ? 'dark' : 'light';
+    applyTheme();
+    saveConfig();
+  });
+}
 els.cfgColorCurrent.addEventListener('input', () => {
   state.config.colors.current = els.cfgColorCurrent.value;
   applyColors();

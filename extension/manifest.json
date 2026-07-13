@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Smart Fill - Inspector ADE",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Scrapes Inspector ADE inspection Q&A + labeled photos, verifies answers with AI, and highlights matches/mismatches.",
   "permissions": ["sidePanel", "activeTab", "scripting", "storage", "unlimitedStorage", "tabs"],
   "host_permissions": [
