@@ -56,7 +56,7 @@ backend/            # Express + Multer stub on PORT 3001
 
 3. **Compare**: the backend returns `{ answers: [{ questionId, aiAnswer, … }] }`.
    The panel shows the page answer vs the AI answer, flags ✓ Match / ✗ Mismatch,
-   and each option is a button — click to write it back into the page
+   and each option is a button - click to write it back into the page
    (`APPLY_ANSWER` clicks the real radio/checkbox/select so the site's own
    show/hide logic fires).
 
@@ -81,14 +81,14 @@ flips roughly half the answers so you can see matches and mismatches. Replace
    tab. The side panel auto-detects it as **SUPPORTED** (no reload needed).
    Detection re-runs on tab switches and when a browser window regains focus, so
    opening a photo in a separate tab/window and closing it recovers on its own.
-4. Click **Sync & Verify with AI** — one button runs scrape → fetch photos →
+4. Click **Sync & Verify with AI** - one button runs scrape → fetch photos →
    verify. Review each suggestion with **Accept / Reject / Reconsider**, filter
    by **All / Different / Matched**, and click a card to scroll the page to that
    question and flash it.
 
 ## Request / response contract
 
-**POST** `http://localhost:3001/api/ade/verify` — `multipart/form-data`
+**POST** `http://localhost:3001/api/ade/verify` - `multipart/form-data`
 
 - `payload` (text): JSON
   ```json
@@ -109,7 +109,7 @@ flips roughly half the answers so you can see matches and mismatches. Replace
 - `images` (files, repeated): each named `<id>.jpg` so the backend maps bytes
   back to `photos[].id`.
 
-**Response** — JSON
+**Response** - JSON
 ```json
 {
   "result_id": "2026-06-30T14-25-19Z__job-111564554__co0u",
@@ -127,7 +127,7 @@ flips roughly half the answers so you can see matches and mismatches. Replace
   extension rebuilds the image URL from the id.
 - `confidence` and `reasoning` are optional.
 
-**POST** `http://localhost:3001/api/ade/feedback` — `application/json`
+**POST** `http://localhost:3001/api/ade/feedback` - `application/json`
 ```json
 { "result_id": "…", "jobId": "111564554",
   "feedback": [ { "questionId": "GainAccess-form_id_95", "decision": "accept", "finalAnswer": "No" } ] }
